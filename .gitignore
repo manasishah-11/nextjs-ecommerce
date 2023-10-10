@@ -1,0 +1,44 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/ecommerce-admin/node_modules
+/ecommerce-admin/.pnp
+/ecommerce-store/node_modules
+/ecommerce-store/.pnp
+.pnp.js
+
+# testing
+/ecommerce-admin/coverage
+/ecommerce-store/coverage
+
+# next.js
+/ecommerce-admin/.next/
+/ecommerce-admin/out/
+/ecommerce-store/.next/
+/ecommerce-store/out/
+
+# production
+/ecommerce-admin/build
+/ecommerce-store/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+pwd.txt
