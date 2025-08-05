@@ -1,4 +1,4 @@
-import ProductCard from "@/components/product_card";
+import ProductCard from "@/components/common/product_card";
 import React from "react";
 
 const new_arrivals = [

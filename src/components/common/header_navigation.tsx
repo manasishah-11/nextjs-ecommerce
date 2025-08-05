@@ -4,6 +4,8 @@ import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
+import SigninModal from "@/components/common/signin_modal";
+
 const header_links = [
   { name: "Shop", href: null, categories: [] },
   { name: "On Sale", href: "/shop?sale=true" },
@@ -13,6 +15,8 @@ const header_links = [
 
 function HeaderNavigation() {
   const [showDiscountBanner, setShowDiscountBanner] = useState(true);
+  const [openSigninModal, setOpenSigninModal] = useState(false);
+
   return (
     <div>
       {showDiscountBanner && (
@@ -57,7 +61,10 @@ function HeaderNavigation() {
               size={20}
               className="text-black/10 absolute left-3 top-1/2 -translate-y-1/2"
             />
-            <input className="rounded-full w-full bg-background py-1 pl-12 pr-6 border border-transparent focus:border-black/10 focus:outline-none text-sm font-light" />
+            <input
+              className="rounded-full w-full bg-background py-1 pl-10 pr-6 border border-transparent focus:border-black/10 focus:outline-none text-sm font-light"
+              placeholder="Search..."
+            />
           </div>
           <div>
             <button className="bg-transparent rounded-full border-none disabled:opacity-50 cursor-pointer focus:outline-none hover:scale-110 transition-transform duration-200">
@@ -65,12 +72,21 @@ function HeaderNavigation() {
             </button>
           </div>
           <div>
-            <button className="bg-transparent rounded-full border-none disabled:opacity-50 cursor-pointer focus:outline-none hover:scale-110 transition-transform duration-200">
+            <button
+              className="bg-transparent rounded-full border-none disabled:opacity-50 cursor-pointer focus:outline-none hover:scale-110 transition-transform duration-200"
+              onClick={() => setOpenSigninModal(true)}
+            >
               <CircleUserRound size={20} className="text-black" />
             </button>
           </div>
         </div>
       </div>
+      {openSigninModal && (
+        <SigninModal
+          openModal={openSigninModal}
+          toggleModal={(open) => setOpenSigninModal(open)}
+        />
+      )}
     </div>
   );
 }

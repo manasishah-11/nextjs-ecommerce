@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import HeaderNavigation from "@/components/header_navigation";
+import HeaderNavigation from "@/components/common/header_navigation";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -25,7 +25,7 @@ export default function RootLayout({
           <HeaderNavigation />
         </div>
         {/* TODO: how to change padding depending on discount banner visibility */}
-        <div className="pt-28">{children}</div>
+        <div className="pt-[108px]">{children}</div>
       </body>
     </html>
   );
