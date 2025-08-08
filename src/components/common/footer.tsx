@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Facebook, Globe, Instagram, Mail } from "lucide-react";
 import React from "react";
 import Image from "next/image";
 
@@ -36,6 +36,39 @@ const resources_links = [
   { name: "Development Tutorials", href: "#" },
   { name: "How to - Blog", href: "#" },
   { name: "Youtube Playlist", href: "#" },
+];
+
+const social_links = [
+  {
+    id: "instagram",
+    link: "",
+    icon: (
+      <Instagram
+        size={15}
+        className="text-black group-hover:text-white transition-colors duration-200"
+      />
+    ),
+  },
+  {
+    id: "facebook",
+    link: "",
+    icon: (
+      <Facebook
+        size={15}
+        className="text-black group-hover:text-white transition-colors duration-200"
+      />
+    ),
+  },
+  {
+    id: "globe",
+    link: "",
+    icon: (
+      <Globe
+        size={15}
+        className="text-black group-hover:text-white transition-colors duration-200"
+      />
+    ),
+  },
 ];
 
 function Footer() {
@@ -83,6 +116,16 @@ function Footer() {
               We have clothes that suits your style and which you’re proud to
               wear. From women to men.
             </p>
+            <div className="flex gap-2">
+              {social_links.map((link) => (
+                <button
+                  key={link.id}
+                  className="group cursor-pointer h-8 w-8 rounded-full bg-white border border-black/10 flex justify-center items-center hover:bg-black transition-all duration-200"
+                >
+                  {link.icon}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="col-span-2 grid grid-cols-4 gap-5">
             <div className="flex flex-col gap-5">
@@ -91,7 +134,7 @@ function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium hover:-translate-y-1 transition-all duration-200"
+                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -103,7 +146,7 @@ function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium hover:-translate-y-1 transition-all duration-200"
+                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -115,7 +158,7 @@ function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium hover:-translate-y-1 transition-all duration-200"
+                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -127,7 +170,7 @@ function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium hover:-translate-y-1 transition-all duration-200"
+                  className="text-black/50 text-[13px] font-light hover:text-black hover:font-medium transition-all duration-200"
                 >
                   {link.name}
                 </a>
@@ -151,12 +194,6 @@ function Footer() {
                   height={30}
                   className="h-auto w-auto aspect-auto"
                 />
-                {/* <img
-                key={payment.name}
-                src={payment.src}
-                alt={payment.name}
-                className="w-10 h-6 object-contain"
-              /> */}
               </div>
             ))}
           </div>
