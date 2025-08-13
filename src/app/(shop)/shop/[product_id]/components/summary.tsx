@@ -1,4 +1,5 @@
 import ColorButton from "@/components/common/color_button";
+import QuantityInput from "@/components/common/quantity_input";
 import Rating from "@/components/common/rating";
 import SizeButton from "@/components/common/size_button";
 import React from "react";
@@ -63,18 +64,7 @@ function ProductSummary() {
       <hr className="border-black/10" />
 
       <div className="flex items-center gap-3">
-        {/* TODO: increase quantity */}
-        <div className="bg-background rounded-full p-2 flex items-center justify-between w-[170px] gap-2">
-          <div className="cursor-pointer flex justify-center items-center text-black text-sm pl-3 hover:scale-150 transition-transform duration-200">
-            -
-          </div>
-          <div className="flex-grow flex justify-center items-center text-black text-sm">
-            1
-          </div>
-          <div className="cursor-pointer flex justify-center items-center text-black text-sm pr-3 hover:scale-150 transition-transform duration-200">
-            +
-          </div>
-        </div>
+        <QuantityInput quantity={1} />
         <button className="flex-grow bg-black rounded-full text-white p-2 text-sm cursor-pointer hover:scale-[1.01] transition-transform duration-200">
           Add to Cart
         </button>

@@ -19,13 +19,13 @@ function RatingReviews() {
           <span className="text-black/60 font-normal !text-[18px]">(451)</span>
         </h3>
         <div className="flex items-center gap-3">
-          <button className="rounded-full bg-background h-11 w-11 flex justify-center items-center cursor-pointer">
+          <button className="rounded-full bg-background h-11 w-11 flex justify-center items-center cursor-pointer hover:opacity-50 transition-opacity duration-200">
             <SlidersVertical className="text-black" size={16} strokeWidth={3} />
           </button>
           <Select defaultValue="latest">
             <SelectTrigger
               arrowClassName="text-black opacity-90 size-3"
-              className="min-w-[110px] text-sm text-black font-normal border-none outline-none focus:ring-0 focus:border-none shadow-none focus:outline-none active:ring-0 active:border-none active:outline-none focus-visible:ring-0 focus-visible:border-none focus-visible:outline-none cursor-pointer px-4 bg-background !h-11 rounded-full"
+              className="min-w-[110px] text-sm text-black font-normal border-none outline-none focus:ring-0 focus:border-none shadow-none focus:outline-none active:ring-0 active:border-none active:outline-none focus-visible:ring-0 focus-visible:border-none focus-visible:outline-none cursor-pointer px-4 bg-background !h-11 rounded-full hover:opacity-50 transition-opacity duration-200"
             >
               <SelectValue />
             </SelectTrigger>
@@ -36,7 +36,7 @@ function RatingReviews() {
               <SelectItem value="rating_asc">Rating: Low to High</SelectItem>
             </SelectContent>
           </Select>
-          <button className="h-11 rounded-full bg-black text-white text-sm px-4 cursor-pointer">
+          <button className="h-11 rounded-full bg-black text-white text-sm px-4 cursor-pointer hover:scale-[1.02] transition-transform duration-200">
             Write a Review
           </button>
         </div>

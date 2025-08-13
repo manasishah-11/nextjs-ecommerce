@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 import SigninModal from "@/components/common/signin_modal";
+import { useRouter } from "next/navigation";
 
 const header_links = [
   { name: "Shop", href: null, categories: [] },
@@ -14,6 +15,8 @@ const header_links = [
 ];
 
 function HeaderNavigation() {
+  const router = useRouter()
+
   const [showDiscountBanner, setShowDiscountBanner] = useState(true);
   const [openSigninModal, setOpenSigninModal] = useState(false);
 
@@ -67,7 +70,7 @@ function HeaderNavigation() {
             />
           </div>
           <div>
-            <button className="bg-transparent rounded-full border-none disabled:opacity-50 cursor-pointer focus:outline-none hover:scale-110 transition-transform duration-200">
+            <button className="bg-transparent rounded-full border-none disabled:opacity-50 cursor-pointer focus:outline-none hover:scale-110 transition-transform duration-200" onClick={() => router.push("/cart")}>
               <ShoppingCart size={20} className="text-black" />
             </button>
           </div>
