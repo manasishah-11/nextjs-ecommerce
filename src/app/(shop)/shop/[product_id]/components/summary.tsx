@@ -1,11 +1,13 @@
+"use client";
+
 import ColorButton from "@/components/common/color_button";
 import QuantityInput from "@/components/common/quantity_input";
 import Rating from "@/components/common/rating";
 import SizeButton from "@/components/common/size_button";
-import React from "react";
+import React, { useState } from "react";
 
 const colors = [
-  { id: "brown", className: "bg-[#4F4631]" },
+  { id: "brown", className: "bg-[#ffffff]" },
   { id: "green", className: "bg-[#314F4A]" },
   { id: "blue", className: "bg-[#31344F]" },
 ];
@@ -18,6 +20,9 @@ export const sizes = [
 ];
 
 function ProductSummary() {
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+
   return (
     <div className="flex flex-col gap-3 justify-between min-h-full">
       <div className="flex flex-col gap-1">
@@ -43,10 +48,14 @@ function ProductSummary() {
 
       <div className="flex flex-col gap-1">
         <h3 className="text-black/60 text-[16px] font-light">Select Colors</h3>
-        {/* TODO: selection of colors */}
         <div className="flex gap-4">
           {colors.map((color) => (
-            <ColorButton key={color.id} className={color.className} />
+            <ColorButton
+              key={color.id}
+              className={color.className}
+              selected={selectedColor === color.id}
+              onClick={() => setSelectedColor(color.id)}
+            />
           ))}
         </div>
       </div>
@@ -54,10 +63,14 @@ function ProductSummary() {
 
       <div className="flex flex-col gap-1">
         <h3 className="text-black/60 text-[16px] font-light">Choose Size</h3>
-        {/* TODO: selection of sizes */}
         <div className="flex gap-4">
           {sizes.map((size) => (
-            <SizeButton key={size.id} title={size.name} />
+            <SizeButton
+              key={size.id}
+              title={size.name}
+              selected={selectedSize === size.id}
+              onClick={() => setSelectedSize(size.id)}
+            />
           ))}
         </div>
       </div>

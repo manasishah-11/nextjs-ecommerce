@@ -15,6 +15,33 @@ import SizeButton from "@/components/common/size_button";
 
 function Filters() {
   const [priceRange, setPriceRange] = useState<number[]>([0, 10000]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+
+  const handleColorSelection = (color: string) => {
+    let initialSelectedColors = [...selectedColors];
+    if (initialSelectedColors.includes(color)) {
+      initialSelectedColors = initialSelectedColors.filter(
+        (color_id) => color_id !== color
+      );
+    } else {
+      initialSelectedColors.push(color);
+    }
+    setSelectedColors(initialSelectedColors);
+  };
+
+  const handleSizeSelection = (size: string) => {
+    let initialSelectedSizes = [...selectedSizes];
+    if (initialSelectedSizes.includes(size)) {
+      initialSelectedSizes = initialSelectedSizes.filter(
+        (size_id) => size_id !== size
+      );
+    } else {
+      initialSelectedSizes.push(size);
+    }
+    setSelectedSizes(initialSelectedSizes);
+  };
+
   return (
     <div className="border border-black/10 rounded-[20px] py-6 px-4 flex flex-col gap-4">
       <h2 className="text-black text-[20px] font-semibold">Filters</h2>
@@ -64,7 +91,6 @@ function Filters() {
           </AccordionContent>
         </AccordionItem>
         <hr className="border-[1.5px] border-black/10 my-4" />
-        {/* TODO: selected colors */}
         <AccordionItem value="colors">
           <AccordionTrigger
             className="text-black text-[20px] font-semibold p-0 items-center mb-4"
@@ -75,13 +101,17 @@ function Filters() {
           <AccordionContent className="flex items-center py-4">
             <div className="w-full grid grid-cols-5 gap-3">
               {colors.map((color) => (
-                <ColorButton key={color.id} className={color.className} />
+                <ColorButton
+                  key={color.id}
+                  className={color.className}
+                  selected={selectedColors.includes(color.id)}
+                  onClick={() => handleColorSelection(color.id)}
+                />
               ))}
             </div>
           </AccordionContent>
         </AccordionItem>
         <hr className="border-[1.5px] border-black/10 my-4" />
-        {/* TODO: selected sizes */}
         <AccordionItem value="sizes">
           <AccordionTrigger
             className="text-black text-[20px] font-semibold p-0 items-center mb-4"
@@ -92,7 +122,12 @@ function Filters() {
           <AccordionContent className="flex py-4">
             <div className="w-full flex flex-wrap gap-3">
               {sizes.map((size) => (
-                <SizeButton key={size.id} title={size.name} />
+                <SizeButton
+                  key={size.id}
+                  title={size.name}
+                  selected={selectedSizes.includes(size.id)}
+                  onClick={() => handleSizeSelection(size.id)}
+                />
               ))}
             </div>
           </AccordionContent>
